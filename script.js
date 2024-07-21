@@ -7,24 +7,28 @@ document.addEventListener('DOMContentLoaded', () => {
     function addTask() {
         const taskText = taskInput.value.trim(); // Get and trim the input value
 
+        // Check if the task text is not empty
         if (taskText === '') {
             alert('Please enter a task.');
             return;
         }
 
-        // Create new list item and remove button
+        // Create new list item
         const listItem = document.createElement('li');
         listItem.textContent = taskText;
 
+        // Create and set up the remove button
         const removeButton = document.createElement('button');
         removeButton.textContent = 'Remove';
         removeButton.className = 'remove-btn';
         removeButton.onclick = function() {
-            taskList.removeChild(listItem);
+            taskList.removeChild(listItem); // Remove the list item from the task list
         };
 
-        // Append remove button to list item and list item to task list
+        // Append the remove button to the list item
         listItem.appendChild(removeButton);
+        
+        // Append the list item to the task list
         taskList.appendChild(listItem);
 
         // Clear the input field
